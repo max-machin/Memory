@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    min-height: 100vh;
+}
+body {
+    margin: 0;
+    background: radial-gradient(rgb(231, 231, 231), rgb(143, 143, 179));
+}
