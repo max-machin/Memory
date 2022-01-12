@@ -37,7 +37,7 @@ require "classes/plateau.php";
         if ($_POST['select_nombre_paires'] != 0){
 
             $nombre_cartes = $_POST['select_nombre_paires'] * 2;
-            
+
             $_SESSION['nombre_cartes'] = $nombre_cartes;
             $_SESSION['plateau'] = 1;
             
@@ -47,9 +47,12 @@ require "classes/plateau.php";
         }
     }
     if (isset($_SESSION['plateau'])){
+
         $nombre_cartes = $_SESSION['nombre_cartes'];
         $_SESSION['plateau'] = new Plateau($nombre_cartes);
         $_SESSION['plateau']->Creer_Plateau();
+
+        
     }
     ?>
         </div>
