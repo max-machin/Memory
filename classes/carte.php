@@ -1,4 +1,7 @@
 <?php
+/**
+ * Class gérant l'affichage des cartes, la comparaison entre 2 etc..
+ */
 
 class Carte {
 
@@ -6,6 +9,7 @@ class Carte {
     public $etat;
     public $image;
     public $image_dos;
+
 
     public function __construct($position, $etat, $image, $image_dos)
     {
@@ -15,7 +19,16 @@ class Carte {
         $this->image_dos = $image_dos;
     }
 
-    
+    public function Retourner_Carte($position, $etat)
+    {
+        $etat = "face";
+        return (
+            array(
+                $position,
+                $etat
+            )
+            );
+    }
 }
 
 ?>

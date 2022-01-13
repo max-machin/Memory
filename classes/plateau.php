@@ -19,8 +19,8 @@ class Plateau {
     // pas de @param, construit le plateau de jeu
     // return $plateau
     public function Creer_Plateau(){
-        $plateau_jeux = [];
-        $images = [1,2,3,4,5,6,7,8,9,10,11,12];
+        $plateau_jeux = array();
+        $images = array(1,2,3,4,5,6,7,8,9,10,11,12);
         
         for ($i = 0; $i < $this->nombre_paires; $i++){
             shuffle($images);
@@ -28,7 +28,10 @@ class Plateau {
             $carte2 = new Carte($i, "dos", "public/images/$images[0].jpg" , "public/images/carte_dos.jpg" );
             array_push($plateau_jeux, $carte1, $carte2);
         }
-        return ($plateau_jeux);
+        foreach($plateau_jeux as $key => $value){
+            $value->id_carte = $key;
+        }
+        return $plateau_jeux;
     }
 
     //@param array $plateau contient le plateau de jeux à mélanger

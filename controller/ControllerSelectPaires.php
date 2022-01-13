@@ -4,7 +4,6 @@ if (isset($_POST['choix_paires'])){
 
     //Si le nombre sélectionner est différent du la valeur select de départ
     if ($_POST['select_nombre_paires'] != 0){
-        
         $nombre_paires = $_POST['select_nombre_paires'];
         //On instancie un nouveau plateau qui sera stocké dans la @var Session['plateau']
         $plateau = new Plateau($nombre_paires);
