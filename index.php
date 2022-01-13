@@ -51,7 +51,14 @@ require "classes/plateau.php";
         $nombre_cartes = $_SESSION['nombre_cartes'];
         $_SESSION['plateau'] = new Plateau($nombre_cartes);
         $_SESSION['plateau']->Creer_Plateau();
-
+        
+        if (isset($_POST['clique_carte']))
+        {   
+            $position = 
+            $etat = 1;
+            $carte = new Carte($position, $etat);
+            
+        }
         
     }
     ?>
