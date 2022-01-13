@@ -1,24 +1,21 @@
 <?php
 
 class Carte {
+
     public $position;
     public $etat;
-    public function __construct($position, $etat)
+    public $image;
+    public $image_dos;
+
+    public function __construct($position, $etat, $image, $image_dos)
     {
         $this->position = $position;
-        $this->$etat = $etat;
+        $this->etat = $etat;
+        $this->image = $image;
+        $this->image_dos = $image_dos;
     }
 
-    public function Get_Id_Carte()
-    {
-        return $this->position;
-    }
-
-    public function Afficher_Carte($etat)
-    {
-        $this->etat = 1;
-        return $etat;
-    }
+    
 }
 
 ?>

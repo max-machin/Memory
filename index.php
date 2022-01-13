@@ -1,8 +1,8 @@
 <?php
-session_start();
-require "classes/carte.php";
 
 require "classes/plateau.php";
+session_start();
+
 
 ?>
 
@@ -17,51 +17,14 @@ require "classes/plateau.php";
 </head>
 <body>
     <h1>Memory</h1>
-        <!-- Formulaire de choix du nombre de paires -->
-        <form action="index.php" method="post">
-            <select name="select_nombre_paires" id="">
-                <option value="0" selected>Nombre de pairs</option>
         <?php
-        
-            for($i=3; $i <= 12; $i++){
-                echo '<option value='.$i.'>'.$i.'</option>';
-            }
+        require "controller/ControllerSelectPaires.php";
+
         ?>
-            </select>
-            <input type="submit" name="choix_paires">
-        </form>
         <div class="bloc_jeux">
-    <?php
-
-    if (isset($_POST['choix_paires'])){
-        if ($_POST['select_nombre_paires'] != 0){
-
-            $nombre_cartes = $_POST['select_nombre_paires'] * 2;
-
-            $_SESSION['nombre_cartes'] = $nombre_cartes;
-            $_SESSION['plateau'] = 1;
-            
-
-        } else {
-           echo "Veuillez choisir un nombre valide";
-        }
-    }
-    if (isset($_SESSION['plateau'])){
-
-        $nombre_cartes = $_SESSION['nombre_cartes'];
-        $_SESSION['plateau'] = new Plateau($nombre_cartes);
-        $_SESSION['plateau']->Creer_Plateau();
-        
-        if (isset($_POST['clique_carte']))
-        {   
-            $position = 
-            $etat = 1;
-            $carte = new Carte($position, $etat);
-            
-        }
-        
-    }
-    ?>
+            <?php
+                require "controller/ControllerPlateau.php";
+            ?>
         </div>
     </body>
 </html>

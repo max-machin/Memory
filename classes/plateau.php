@@ -1,40 +1,44 @@
 <?php
 
+require "carte.php";
+
+/**La classe Plateau sert à générer dynamiquement le plateau de jeux en fonction du choix de l'utilisateur,
+ * il créer les cartes et mélange le jeux
+ */
+
 class Plateau {
 
-    public $nombre_cartes;
+    //@var INT Nombres paires sélectionnées par l'utilisateur
+    public $nombre_paires;
 
-    public function __construct($nombre_cartes)
-    {
-        $this->nombre_cartes = $nombre_cartes;
+    //@param INT $nombre_paires Nombres paires sélectionnées par l'utilisateur
+    public function __construct($nombre_paires){
+        $this->nombre_paires = $nombre_paires;
     }
-    public function Creer_Plateau()
-    {
-        $plateau = [];
-        for($i = 0; $i < $this->nombre_cartes; $i++){
-            $position = $i;
-            $etat = 0;
-            $_SESSION['etat'] = $etat;
-            $plateau[$i] = new Carte($position, $etat);
-            $_SESSION['cartes'] = $plateau[$i]->Get_Id_Carte();
-            $_SESSION['id_carte'] = $_POST['id_carte'];
-            if($_SESSION['etat'] == 0){
-            ?>
-            <form action="" method="post">
-                <button name="clique_carte"><img src="public/images/back_card.jpg" alt="" height="200px" width="120px"></button>
-                <input type="hidden" name="id_carte" value="<?= $i ?>">
-            </form>
-            <?php
-            }
-            elseif ($_SESSION['etat'] == 1)
-            {
-                ?>
-                <img src="public/images/01.jpg" alt="affichage_carte" height="200px" width="120px">
-                <?php
-            }
+
+    // pas de @param, construit le plateau de jeu
+    // return $plateau
+    public function Creer_Plateau(){
+        $plateau_jeux = [];
+        $images = [1,2,3,4,5,6,7,8,9,10,11,12];
+        
+        for ($i = 0; $i < $this->nombre_paires; $i++){
+            shuffle($images);
+            $carte1 = new Carte($i, "dos", "public/images/$images[0].jpg" , "public/images/carte_dos.jpg" );
+            $carte2 = new Carte($i, "dos", "public/images/$images[0].jpg" , "public/images/carte_dos.jpg" );
+            array_push($plateau_jeux, $carte1, $carte2);
         }
-        var_dump($_SESSION['id_carte']);
+        return ($plateau_jeux);
     }
+
+    //@param array $plateau contient le plateau de jeux à mélanger
+    //return @plateau 
+    public function Melanger_Plateau($plateau){
+        $plateau = $this->Creer_Plateau();
+        shuffle($plateau);
+        return $plateau;
+    }
+
 }
 
 ?>
