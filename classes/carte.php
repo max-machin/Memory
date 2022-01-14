@@ -21,13 +21,17 @@ class Carte {
 
     public function Retourner_Carte($position, $etat)
     {
-        $etat = "face";
+        $this->etat = "face";
+        $this->position = $_SESSION['plateau'][$_POST['id_carte']];
         return (
             array(
                 $position,
                 $etat
             )
             );
+    }
+    public function Verifier_carte($image){
+
     }
 }
 

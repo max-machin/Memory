@@ -28,9 +28,7 @@ class Plateau {
             $carte2 = new Carte($i, "dos", "public/images/$images[0].jpg" , "public/images/carte_dos.jpg" );
             array_push($plateau_jeux, $carte1, $carte2);
         }
-        foreach($plateau_jeux as $key => $value){
-            $value->id_carte = $key;
-        }
+        
         return $plateau_jeux;
     }
 

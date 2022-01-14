@@ -5,10 +5,16 @@ session_start();
 
 //Si une carte est sélectionner on récupere l'id de cette derniére afin de la cibler à l'affichage
 if (isset($_POST['clique_carte'])){
+
     $etat = ($_SESSION['plateau'][$_POST['id_carte']]->etat);
-    $position = $_SESSION['plateau'][$_POST['id_carte']]->id_carte;
+    $position = $_POST['id_carte'];
     $retourner_carte = $_SESSION['plateau'][$_POST['id_carte']]->Retourner_Carte($position, $etat);
-    $_SESSION['plateau'][$_POST['id_carte']]->etat = "face";
+    
+    $_SESSION['id_carte'] = $retourner_carte[0];
+
+    if (isset($retourner_carte[0])){
+        $verifier_carte = $_SESSION['plateau'][$_POST['id_carte']]->Verifier_carte($_SESSION['id_carte'],$_SESSION['plateau'][$_POST['id_carte']]->image); 
+    }
 }
 ?>
 
