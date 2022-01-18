@@ -8,11 +8,10 @@
             if ($value->etat == "dos"){
             ?>
                 <form action="" method="post">
-                    <button name="clique_carte"><img src="<?= $value->image_dos?>" alt="image_carte_dos" height="200px" width="120px"></button>
-                    <input type="hidden" value=<?= $param ?> name="id_carte">
+                    <button name="clique_carte"><img src="<?= $value->image_dos ?>" alt="image_carte_dos" height="200px" width="120px"></button>
+                    <input type="hidden" value="<?= $param ?>" name="id_carte">
                     <input type="hidden" name="etat_carte" value="<?= $value->etat ?>">
-                </form>
-                        
+                </form>       
             <?php
             //Si l'état de la carte est "face", on gére l'affichage différement
             } elseif($value->etat == "face"){
@@ -23,6 +22,5 @@
             <?php
             }
         }
-    }
-            
+    }        
 ?>

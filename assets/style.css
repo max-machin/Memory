@@ -12,5 +12,4 @@ body {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 2vh;
     justify-content: center;
-    
 }

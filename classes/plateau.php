@@ -26,6 +26,7 @@ class Plateau {
             shuffle($images);
             $carte1 = new Carte( "dos", "assets/images/$images[0]" , "assets/images/carte_dos.jpg" );
             $carte2 = new Carte( "dos", "assets/images/$images[0]" , "assets/images/carte_dos.jpg" );
+            unset($images[0]);
             array_push($plateau_jeux, $carte1, $carte2);
         }
         foreach ($plateau_jeux as $key => $value){

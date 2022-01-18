@@ -2,6 +2,7 @@
 //Si l'utilisateur a choisit son nombre de carte
 if (isset($_POST['choix_paires'])){
     unset($_SESSION['comparer']);
+    unset($_SESSION['plateau']);
     $_SESSION['compteur'] = 0;
     //Si le nombre sélectionner est différent du la valeur select de départ
     if ($_POST['select_nombre_paires'] != 0){
@@ -20,6 +21,4 @@ if (isset($_POST['choix_paires'])){
         unset($_SESSION['plateau']);
     }
 }
-
-
 ?>

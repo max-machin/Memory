@@ -1,14 +1,14 @@
 <?php
-require_once "classes/Trouver.php";
 
 //@function comparant les valeurs de la session recuperant les images des cartes à comparer
 function checkCardsReturned(){
     //Si les deux images à comparer sont égales alors on les laisse afficher et on "vide" la session de comparaison
     if($_SESSION['plateau'][$_SESSION['comparer'][0]]->image == $_SESSION['plateau'][$_SESSION['comparer'][1]]->image){
+        $_SESSION['trouver'] = 1;
         unset($_SESSION['comparer']);
         //On incrémente le compteur pour chaque coup joué, qu'il soit bon ou raté
         $_SESSION['compteur']++;
-        // header('Refresh: 0');
+        echo '<META http-equiv="refresh" content="0">';
     }
     //Si la premiére image != la seconde alors on définit $_SESSION['signal'] qu'on utilisera sur "Index.php"
     else {

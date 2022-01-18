@@ -3,8 +3,7 @@ require "classes/Plateau.php";
 session_start();
 require "controller/Controller_Select_Paires.php";
 require "controller/Controller_Carte.php";
-require_once "controller/Controller_CheckCards.php";
-
+require "controller/Controller_CheckCards.php";
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +34,7 @@ require_once "controller/Controller_CheckCards.php";
             <p>Compteur : <?= $_SESSION['compteur'] ?></p>
         </div>
         <!-- Bloc contenant l'affichage du jeux en dynamique dans le fichier views/View_Plateau -->
-        <div class="bloc_jeux" >
+        <div class="bloc_jeux">
             
             <?php
                 //Insertion du fichier contenant l'affichage du plateau de jeux
@@ -44,14 +43,14 @@ require_once "controller/Controller_CheckCards.php";
                 if(isset($_SESSION['comparer'])){
                     if (count($_SESSION['comparer']) == 2)
                         checkCardsReturned();
-                    //Si $_SESSION signal est défini lors de l'éxécution de la function de comparaison alors on  retourne les cartes
+                    //Si $_SESSION signal est défini lors de l'éxécution de la function de comparaison alors on retourne les cartes
                     //Et on réinitialise $_SESSION signal
                     if ($_SESSION['signal'] == 1){
                         $_SESSION['signal'] = 0;
-                        header('Refresh: 1; URL=index.php');
+                        echo '<META http-equiv="refresh" content="1; URL=index.php">';
+                        exit();
                     }
                 }
-                
             ?>
 
         </div>
