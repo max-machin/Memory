@@ -5,11 +5,48 @@ body {
     margin: 0;
     text-align: center;
 }
-.bloc_jeux {
+.bloc_jeux3 {
     margin-right: 30%;
     margin-left: 30%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 2vh;
     justify-content: center;
+}
+
+.bloc_jeux4, 
+.bloc_jeux8 {
+    margin-right: 30%;
+    margin-left: 30%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2vh;
+    justify-content: center;
+}
+
+.bloc_jeux5,
+.bloc_jeux7,
+.bloc_jeux10{
+    margin-right: 25%;
+    margin-left: 25%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 2vh;
+    justify-content: center;
+}
+
+.bloc_jeux6,
+.bloc_jeux9,
+.bloc_jeux11,
+.bloc_jeux12 {
+    margin-right: 20%;
+    margin-left: 20%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 2vh;
+    justify-content: center;
+}
+
+.stop_partie {
+    margin-top: 3vh;
 }

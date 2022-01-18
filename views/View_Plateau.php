@@ -2,13 +2,25 @@
     //Si une $_SESSION de jeux est défini
     if(isset($_SESSION['plateau'])){
         
+        if($_SESSION['nombre_paires'] <= 7){
+            $height = 200;
+            $width = 120;
+        }
+        if($_SESSION['nombre_paires'] > 7){
+            $height = 170;
+            $width = 105;
+        }
+        if($_SESSION['nombre_paires'] > 9){
+            $height = 150;
+            $width = 90;
+        }
         //On boucle sur le "plateau" contenant les cartes 
         foreach($_SESSION['plateau'] as $param => $value){
             //Si l'état de la carte est "dos", on gére l'affichage
             if ($value->etat == "dos"){
             ?>
                 <form action="" method="post">
-                    <button name="clique_carte"><img src="<?= $value->image_dos ?>" alt="image_carte_dos" height="200px" width="120px"></button>
+                    <button name="clique_carte"><img src="<?= $value->image_dos ?>" alt="image_carte_dos" height="<?= $height ?>px" width="<?= $width ?>px"></button>
                     <input type="hidden" value="<?= $param ?>" name="id_carte">
                     <input type="hidden" name="etat_carte" value="<?= $value->etat ?>">
                 </form>       
@@ -17,7 +29,7 @@
             } elseif($value->etat == "face"){
             ?>
                 <form action="">
-                    <button><img src="<?= $value->image ?>" alt="image_carte" height="200px" width="120px"></button>
+                    <button><img src="<?= $value->image ?>" alt="image_carte" height="<?= $height ?>px" width="<?= $width ?>px"></button>
                 </form>
             <?php
             }
