@@ -20,24 +20,19 @@ class Plateau {
     // return $plateau
     public function Creer_Plateau(){
         $plateau_jeux = array();
-        $images = array(1,2,3,4,5,6,7,8,9,10,11,12);
+        $images = array("1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg");
         
         for ($i = 0; $i < $this->nombre_paires; $i++){
             shuffle($images);
-            $carte1 = new Carte($i, "dos", "public/images/$images[0].jpg" , "public/images/carte_dos.jpg" );
-            $carte2 = new Carte($i, "dos", "public/images/$images[0].jpg" , "public/images/carte_dos.jpg" );
+            $carte1 = new Carte( "dos", "assets/images/$images[0]" , "assets/images/carte_dos.jpg" );
+            $carte2 = new Carte( "dos", "assets/images/$images[0]" , "assets/images/carte_dos.jpg" );
             array_push($plateau_jeux, $carte1, $carte2);
         }
-        
+        foreach ($plateau_jeux as $key => $value){
+            $value->position = $key;
+        }
         return $plateau_jeux;
-    }
-
-    //@param array $plateau contient le plateau de jeux à mélanger
-    //return @plateau 
-    public function Melanger_Plateau($plateau){
-        $plateau = $this->Creer_Plateau();
-        shuffle($plateau);
-        return $plateau;
+        
     }
 
 }
