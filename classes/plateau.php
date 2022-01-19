@@ -20,7 +20,7 @@ class Plateau {
     // return $plateau
     public function Creer_Plateau(){
         $plateau_jeux = array();
-        $images = array("1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg");
+        $images = array("1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg", "10.jpg","11.jpg","12.jpg");
         
         for ($i = 0; $i < $this->nombre_paires; $i++){
             shuffle($images);

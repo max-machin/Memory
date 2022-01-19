@@ -48,5 +48,15 @@ body {
 }
 
 .stop_partie {
-    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.bloc_fin_partie {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 38%;
+    right: 38%;
+    margin-top: 10%;
+    background-color: rgba(88, 88, 88, 0.685);
 }

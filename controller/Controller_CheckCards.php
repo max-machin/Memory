@@ -5,6 +5,8 @@ function checkCardsReturned(){
     //Si les deux images à comparer sont égales alors on les laisse afficher et on "vide" la session de comparaison
     if($_SESSION['plateau'][$_SESSION['comparer'][0]]->image == $_SESSION['plateau'][$_SESSION['comparer'][1]]->image){
         $_SESSION['trouver'] = 1;
+        $_SESSION['cartes_trouver']++;
+
         unset($_SESSION['comparer']);
         //On incrémente le compteur pour chaque coup joué, qu'il soit bon ou raté
         $_SESSION['compteur']++;
