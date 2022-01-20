@@ -3,8 +3,8 @@
     if(isset($_SESSION['plateau'])){
         //Si la $_SESSION plateau comprend 7 cartes ou moins
         if($_SESSION['nombre_paires'] <= 7){
-            $height = 200;
-            $width = 120;
+            $height = 220;
+            $width = 140;
         }
         //Si la $_SESSION plateau comprend plus de 7 cartes
         if($_SESSION['nombre_paires'] > 7){
@@ -21,8 +21,8 @@
             //Si l'état de la carte est "dos", on gére l'affichage
             if ($value->etat == "dos"){
             ?>
-                <form action="" method="post">
-                    <button name="clique_carte"><img src="<?= $value->image_dos ?>" alt="image_carte_dos" height="<?= $height ?>px" width="<?= $width ?>px"></button>
+                <form class="plateau_form" action="" method="post">
+                    <button name="clique_carte" type="image"><img src="<?= $value->image_dos ?>" alt="image_carte_dos" height="<?= $height ?>px" width="<?= $width ?>px"></button>
                     <input type="hidden" value="<?= $param ?>" name="id_carte">
                     <input type="hidden" name="etat_carte" value="<?= $value->etat ?>">
                 </form>       
@@ -30,7 +30,7 @@
             //Si l'état de la carte est "face", on gére l'affichage différement
             } elseif($value->etat == "face"){
             ?>
-                <form action="">
+                <form class="plateau_form" action="">
                     <button><img src="<?= $value->image ?>" alt="image_carte" height="<?= $height ?>px" width="<?= $width ?>px"></button>
                 </form>
             <?php

@@ -24,8 +24,8 @@ class Plateau {
         
         for ($i = 0; $i < $this->nombre_paires; $i++){
             shuffle($images);
-            $carte1 = new Carte( "dos", "assets/images/$images[0]" , "assets/images/carte_dos.jpg" );
-            $carte2 = new Carte( "dos", "assets/images/$images[0]" , "assets/images/carte_dos.jpg" );
+            $carte1 = new Carte( "dos", "../assets/images/$images[0]" , "../assets/images/dos4.png" );
+            $carte2 = new Carte( "dos", "../assets/images/$images[0]" , "../assets/images/dos4.png" );
             unset($images[0]);
             array_push($plateau_jeux, $carte1, $carte2);
         }
