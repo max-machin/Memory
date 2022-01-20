@@ -138,7 +138,7 @@ if(isset($_POST['relancer'])){
                         exit();
                     }
                 }
-
+ 
                 //Si dans "Controller_CheckCards on définit la variable $_SESSION['trouvé']
                 if(isset($_SESSION['trouver'])){
                     //Si $_SESSION['carte_trouver'] est définit

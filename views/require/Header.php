@@ -8,6 +8,23 @@
     <title>Memory</title>
 </head>
 <body>
+
+    <?php
+        if($server_name == 'localhost/projectPool2/memory/views/Inscription.php'){
+    ?>
+    <header>
+        <nav>
+            <img src="../assets/images/logo.png" alt="logo_nav" height="128px" width="130px">
+
+            <ol>
+                <li><a href="Memory.php">Memory</a></li>
+                <li><a href="Connexion.php">Connexion</a></li>
+            </ol>
+        </nav>
+    </header>
+    <?php
+        } else {
+    ?>
     <header>
         <nav>
             <img src="../assets/images/logo.png" alt="logo_nav" height="128px" width="130px">
@@ -19,3 +36,6 @@
             </ol>
         </nav>
     </header>
+    <?php
+        } 
+    ?>

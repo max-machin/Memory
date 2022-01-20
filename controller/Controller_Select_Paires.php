@@ -23,5 +23,5 @@ if (isset($_POST['choix_paires'])){
         echo "Veuillez sélectionner un nombre valide";
         unset($_SESSION['plateau']);
     }
-}
+} 
 ?>
