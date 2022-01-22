@@ -61,7 +61,7 @@ require "../controller/Affichage_Memory.php";
             <p>Votre score : <?= $score ?></p>
             <a href="Profil.php">Votre profil</a>
             <a href="Accueil.php">Accueil</a>
-            <a href="top10.php">Hall of fame</a>
+            <a href="Classement.php">Hall of fame</a>
             <form method="post" action="">
                 <button name="relancer">Relancer partie</button>
             </form>
