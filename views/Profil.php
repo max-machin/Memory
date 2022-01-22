@@ -37,6 +37,7 @@ $score_profil = $score->TroisMeilleursScores($id);
 $last_score = $score->CinqDernierScores($id);
 
 
+
 ?>
 <div>
     <h2>Vos 3 Meilleurs scores</h2>
@@ -94,22 +95,54 @@ $last_score = $score->CinqDernierScores($id);
 <?php
 require_once "../controller/Controller_Carte_Profil.php";
 ?>
-
-<section class="section_carte">
-    <form action="" method="post">
-        <button name="dos1" value="../assets/images/dos1.png"><img src="../assets/images/dos1.png" height="300px" width="200px" alt="carte1"></button>
-        <span><?= $carte_choisie1 ?></span>
-    </form>
-    <form action="" method="post">
-        <button name="dos2" value="../assets/images/dos2.png"><img src="../assets/images/dos2.png" height="300px" width="200px" alt="carte2"></button>
-        <span><?= $carte_choisie2 ?></span>
-    </form>
-    <form action="" method="post">
-        <button name="dos3" value="../assets/images/dos3.png"><img src="../assets/images/dos3.png" height="300px" width="200px" alt="carte2"></button>
-        <span><?= $carte_choisie3 ?></span>
-    </form>
-</section>
-            
+<section class="section_carte_profil">
+    <section class="section_dos_carte">
+        <form action="" method="post">
+            <button name="dos1" value="../assets/images/dos1.png"><img src="../assets/images/dos1.png" height="300px" width="200px" alt="carte1"></button>
+            <span><?= $carte_choisie1 ?></span>
+        </form>
+        <form action="" method="post">
+            <button name="dos2" value="../assets/images/dos2.png"><img src="../assets/images/dos2.png" height="300px" width="200px" alt="carte2"></button>
+            <span><?= $carte_choisie2 ?></span>
+        </form>
+        <form action="" method="post">
+            <button name="dos3" value="../assets/images/dos3.png"><img src="../assets/images/dos3.png" height="300px" width="200px" alt="carte2"></button>
+            <span><?= $carte_choisie3 ?></span>
+        </form>
+    </section>
 <?php
+$verif_score = $score->VerifScore($id);
+
+if($verif_score === 1){
+?>
+    <section class="carte_debloquer">
+        <form action="" method="post">
+            <button name="dos_anime1" value="../assets/images/dos1.gif">
+                <img src="../assets/images/dos1.gif" height="320px" width="220px" alt="carte2">
+                <span><?= $carte_boss ?></span>
+            </button>
+        </form>
+        <form action="" method="post" class="anime2">
+            <button name="dos_anime2" value="../assets/images/dos2.gif">
+                <img src="../assets/images/dos2.gif" height="300px" width="200px" alt="carte2">
+                <span><?= $carte_boss2 ?></span>
+            </button>
+        </form>
+    </section>  
+<?php
+}
+else {
+    ?>
+    <section class="carte_debloquer">
+        <form action="">
+            <h2>A débloquer</h2>
+            <button>
+                <img src="../assets/images/lock_card.png" alt="to_unlock" height="300px" width="200px" >
+            </button>
+        </form>
+    </section> 
+</section>
+    <?php
+}
 
 require "../views/require/Footer.php";

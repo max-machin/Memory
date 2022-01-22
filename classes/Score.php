@@ -45,6 +45,16 @@ class Score extends DataBase {
 
         return $resultat;
     }
+
+    public function VerifScore($id){
+        $select = "SELECT * FROM score WHERE id_utilisateur = :id AND score_user < 1.49";
+        $exec_select = $this->bdd->prepare($select);
+        $exec_select->execute([':id' => $id]);
+
+        $count = $exec_select->rowCount();
+
+        return $count;
+    }
     
 }
 
