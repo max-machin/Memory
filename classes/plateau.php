@@ -1,6 +1,6 @@
 <?php
 
-require "carte.php";
+require_once "carte.php";
 
 /**La classe Plateau sert à générer dynamiquement le plateau de jeux en fonction du choix de l'utilisateur,
  * il créer les cartes et mélange le jeux

@@ -1,6 +1,6 @@
 <?php
 
-require "Database.php";
+require_once "Database.php";
 
 function valid_data($données)
 {
@@ -28,6 +28,8 @@ class User extends Database{
         $this->bdd = parent::__construct();
     }
 
+    //Inscription utilisateur
+    
     public function Register($login, $password){
 
         $insert = "INSERT INTO utilisateurs (login, password) VALUES (:login, :password)";
@@ -45,6 +47,8 @@ class User extends Database{
         return array($count);
         //return count et si count = 1 ou 0 en fonction dans le controller on enregistre l'user ou pas
     }
+
+    //Connexion utilisateur
 
     public function Connect($login){
         $select = "SELECT * FROM utilisateurs WHERE `login` = ?";
@@ -71,6 +75,8 @@ class User extends Database{
         return $resultat;
     }
 
+    //Update information utilisateur
+
     public function UpdateData($login, $password){
         $update = "UPDATE utilisateurs SET login = ? , password = ? WHERE id = ? ";
         $exec_update = $this->bdd->prepare($update);
@@ -86,6 +92,8 @@ class User extends Database{
         $data = $exec_select->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
+
+    
 }
 
 ?>

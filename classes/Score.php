@@ -1,6 +1,6 @@
 <?php
 
-require "Database.php";
+require_once "Database.php";
 
 class Score extends DataBase {
     public $bdd;
@@ -10,7 +10,7 @@ class Score extends DataBase {
     }
 
     public function EnregistrerScore($id, $score, $nombre_paires){
-        $insert = "INSERT INTO score (id_utilisateur, score, date, nombre_paires) VALUES (:id , :score, NOW(), :nombre_paires)";
+        $insert = "INSERT INTO score (id_utilisateur, score_user, date, nombre_paires) VALUES (:id , :score, NOW(), :nombre_paires)";
         $exec_insert = $this->bdd->prepare($insert);
         $exec_insert->bindParam(':id', $id , PDO::PARAM_INT);
         $exec_insert->bindParam(':score', $score, PDO::PARAM_STR);
@@ -18,6 +18,25 @@ class Score extends DataBase {
         $exec_insert->execute();
     }
 
+    public function TroisMeilleursScores($id){
+        $select = "SELECT * FROM score WHERE id_utilisateur = :id ORDER BY score_user ASC LIMIT 3 ";
+        $exec_select = $this->bdd->prepare($select);
+        $exec_select->execute([':id' => $id]);
+        $resultat = $exec_select->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultat;
+    }
+
+    public function CinqDernierScores($id){
+        $select = "SELECT * FROM score WHERE id_utilisateur = :id ORDER BY `date` DESC LIMIT 5 ";
+        $exec_select = $this->bdd->prepare($select);
+        $exec_select->execute([':id' => $id]);
+        $resultat = $exec_select->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultat;
+    }
+
+    
     
 }
 

@@ -5,6 +5,7 @@ require "../classes/User.php";
 $error_login = "";
 $error_password = "";
 $error_passwordRep = "";
+$message = "";
 
 if (isset($_POST['submit'])){
 
