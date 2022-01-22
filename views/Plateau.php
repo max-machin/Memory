@@ -1,10 +1,11 @@
 <?php
+
     //Si une $_SESSION de jeux est défini
     if(isset($_SESSION['plateau'])){
         //Si la $_SESSION plateau comprend 7 cartes ou moins
         if($_SESSION['nombre_paires'] <= 7){
-            $height = 220;
-            $width = 140;
+            $height = 230;
+            $width = 150;
         }
         //Si la $_SESSION plateau comprend plus de 7 cartes
         if($_SESSION['nombre_paires'] > 7){

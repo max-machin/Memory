@@ -12,7 +12,7 @@ function valid_data($données)
     $données = htmlspecialchars($données);
     return $données;
 }
-
+ 
 class User extends Database{
     private $id;
     //@var string public $login login de l'utilisateur
@@ -41,12 +41,34 @@ class User extends Database{
         $select = "SELECT * FROM utilisateurs WHERE `login` = ? ";
         $exec_select = $this->bdd->prepare($select);
         $exec_select->execute([$login]);
-
-        $data = $exec_select->fetch(PDO::FETCH_ASSOC);
         $count = $exec_select->rowCount();
-        var_dump($count);
-        
+        return array($count);
         //return count et si count = 1 ou 0 en fonction dans le controller on enregistre l'user ou pas
+    }
+
+    public function Connect($login){
+        $select = "SELECT * FROM utilisateurs WHERE `login` = ?";
+        $exec_select = $this->bdd->prepare($select);
+        $exec_select->execute(array($login));
+
+        $user_data = $exec_select->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($user_data as $data){
+            $_SESSION['user_data'] = array(
+                'id' => $data['id'],
+                'login' => $data['login']
+            );
+        }
+        header ('location: Accueil.php');
+    }
+
+    public function VerifDataUser($login){
+        $select = "SELECT * FROM utilisateurs WHERE `login` = ? ";
+        $exec_select = $this->bdd->prepare($select);
+        $exec_select->execute([$login]);
+        $resultat = $exec_select->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $resultat;
     }
 }
 

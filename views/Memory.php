@@ -5,46 +5,9 @@ require "../controller/Controller_Select_Paires.php";
 require "../controller/Controller_Carte.php";
 require "../controller/Controller_CheckCards.php";
 
+require "../classes/Score.php";
 
-//Si une $_SESSION de jeux est défini, alors on fait disparaitre le select du nombre de paire, et on affiche l'input pour quitter partie
-if(isset($_SESSION['plateau']) && !isset($_SESSION['gagner'])){
-    $_SESSION['display_select'] = "none";
-    $_SESSION['display1'] = "block";
-    $_SESSION['display2'] = "none";
-//Sinon on affiche le select du nombre de paire et on fait disparaitre le bouton quitter partie et le compteur
-} else {
-    $_SESSION['display_select'] = "block";
-    $_SESSION['display1'] = "none";
-    $_SESSION['display2'] = "none";
-}
-//Si l'utilisateur quitte la partie en cours alors on vide le plateau et on remets l'affichage avant choix du nombre de paires
-if(isset($_POST['stop_partie'])){
-    $_SESSION['display_select'] = "block";
-    $_SESSION['display1'] = "none";
-    unset($_SESSION['plateau']);
-    unset($_SESSION['trouver']);
-    unset($_SESSION['cartes_trouver']);
-    unset($_SESSION['gagner']);
-}
- //Si $_SESSION['gagner'] est définit = partie finie /  alors on réinitialise nos variables de session et on affiche/cache les div
- if(isset($_SESSION['gagner'])){
-    $_SESSION['display1'] = "block";
-    $_SESSION['display_select'] = "none";
-    $_SESSION['display2'] = "block";
-    // unset($_SESSION['plateau']);
-    unset($_SESSION['carte_trouver']);
-    unset($_SESSION['trouver']);
-}
-if(isset($_POST['relancer'])){
-    $_SESSION['display_select'] = "block";
-    $_SESSION['display1'] = "none";
-    $_SESSION['display2'] = "none";
-    unset($_SESSION['plateau']);
-    unset($_SESSION['trouver']);
-    unset($_SESSION['cartes_trouver']);
-    unset($_SESSION['gagner']);
-}
-
+require "../controller/Affichage_Memory.php";
 ?>
 
 <!DOCTYPE html>
@@ -88,33 +51,26 @@ if(isset($_POST['relancer'])){
                 </div>
         <?php
         }
+
+        if(isset(($_SESSION['gagner']))){
+            $score = round($_SESSION['compteur'] / $_SESSION['nombre_paires'], 2);
         ?>
-        
         <!-- Affichage de fin de partie   -->
         <div class="bloc_fin_partie">
-            <div style="display: <?= $_SESSION['display2'] ?>;">
-                    <p>Partie terminée!</p>
-                    <p>Votre score : <?= $_SESSION['compteur'] ?></p>
-                    <a href="views/View_Profil.php">Votre profil</a>
-                </div>
+            <p>Partie terminée!</p>
+            <p>Votre score : <?= $score ?></p>
+            <a href="Profil.php">Votre profil</a>
+            <a href="Accueil.php">Accueil</a>
+            <a href="top10.php">Hall of fame</a>
+            <form method="post" action="">
+                <button name="relancer">Relancer partie</button>
+            </form>
+        </div>
+        <?php
+            }
+        ?>
 
-                <?php
-                if(isset(($_SESSION['gagner']))){
-                ?>
-                    <!-- Button pour relancer une partie -->
-                <div class="stop_partie" style="display:<?= $_SESSION['display1'] ?>;">
-                    <form method="post" action="">
-                        <button name="relancer">
-                            Relancer partie
-                        </button>
-                    </form>
-                </div>
-                <?php
-                }
-                ?>
-            </div>
-
-    <!-- Bloc contenant l'affichage du jeux en dynamique dans le fichier views/View_Plateau -->
+    <!-- Bloc contenant l'affichage du jeux en dynamique dans le fichier views/Plateau.php -->
     <?php 
         if(isset($_SESSION['nombre_paires'])){
     ?>
@@ -125,35 +81,9 @@ if(isset($_POST['relancer'])){
         <?php
             //Insertion du fichier contenant l'affichage du plateau de jeux
             require "../views/Plateau.php";
-            //Si notre variable $_SESSION de comparaison == 2 alors on effectue le fonction de comparaison des images des cartes
-            if(isset($_SESSION['comparer'])){
-                if (count($_SESSION['comparer']) == 2){
-                    $_SESSION['trouver'] = "0";
-                    checkCardsReturned();
-                    //Si $_SESSION signal est défini lors de l'éxécution de la function de comparaison alors on retourne les cartes
-                    //Et on réinitialise $_SESSION signal
-                    if ($_SESSION['signal'] == 1){
-                        $_SESSION['signal'] = 0;
-                        echo '<META http-equiv="refresh" content="1; URL=Memory.php">';
-                        exit();
-                    }
-                }
- 
-                //Si dans "Controller_CheckCards on définit la variable $_SESSION['trouvé']
-                if(isset($_SESSION['trouver'])){
-                    //Si $_SESSION['carte_trouver'] est définit
-                    if(isset($_SESSION['cartes_trouver'])){
-                        //On transforme la valeur de $_SESSION['carte_trouver'] de int -> string afin de pouvoir la comparer au nombre paires
-                        $_SESSION['cartes_trouver_str'] = strval($_SESSION['cartes_trouver']);
-                        //Si la nombre de pairs trouvé est égale au nombre de paires définit au début de la partie
-                        if($_SESSION['cartes_trouver_str'] === $_SESSION['nombre_paires']){
-                            $_SESSION['gagner'] = 1;
-                        }
-                    }
-                }
-            }
             
-           
+            //Insertion du fichier des conditions de bloc_jeux
+            require "../controller/Controller_Plateau.php";  
             ?>
             </div>
         </section>

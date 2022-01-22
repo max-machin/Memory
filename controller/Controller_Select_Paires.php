@@ -4,7 +4,7 @@
 if (isset($_POST['choix_paires'])){
     unset($_SESSION['comparer']);
     unset($_SESSION['plateau']);
-    unset($_SESSION['pop_up']);
+    unset($_SESSION['gagner']);
     $_SESSION['compteur'] = 0;
     
     //Si le nombre sélectionner est différent du la valeur select de départ
