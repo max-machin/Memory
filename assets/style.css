@@ -97,31 +97,24 @@ nav ol li a{
     justify-content: space-evenly;
 }
 
+
 .section_carte_profil {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    
 }
-
-.section_dos_carte {
-    margin-top:5%;
+.section_carte_profil section {
     display: flex;
+    justify-content: center;
 }
 
-.section_dos_carte form button {
-    background-color: transparent;
+.section_carte_profil form {
+    display: flex;
+    flex-direction: column;
+}
+
+.section_carte_profil form button {
+    background: transparent ;
     border: none;
 }
 
-.carte_debloquer {
-    margin-top: 4%;
-    display: flex;
-}
-
-.anime2 {
-    margin-top: 3%
-}
-
-.carte_debloquer form button {
-    background-color: transparent;
-    border: none;
-}

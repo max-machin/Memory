@@ -95,6 +95,7 @@ $last_score = $score->CinqDernierScores($id);
 <?php
 require_once "../controller/Controller_Carte_Profil.php";
 ?>
+<h2> Personnalisez vos cartes </h2>
 <section class="section_carte_profil">
     <section class="section_dos_carte">
         <form action="" method="post">
@@ -113,20 +114,20 @@ require_once "../controller/Controller_Carte_Profil.php";
 <?php
 $verif_score = $score->VerifScore($id);
 
-if($verif_score === 1){
+if($verif_score >= 1){
 ?>
     <section class="carte_debloquer">
         <form action="" method="post">
             <button name="dos_anime1" value="../assets/images/dos1.gif">
-                <img src="../assets/images/dos1.gif" height="320px" width="220px" alt="carte2">
-                <span><?= $carte_boss ?></span>
+                <img src="../assets/images/dos1.gif" height="300px" width="200px" alt="carte2">
             </button>
+            <span><?= $carte_boss ?></span>
         </form>
-        <form action="" method="post" class="anime2">
-            <button name="dos_anime2" value="../assets/images/dos2.gif">
+        <form action="" method="post">
+            <button class="anime2" name="dos_anime2" value="../assets/images/dos2.gif">
                 <img src="../assets/images/dos2.gif" height="300px" width="200px" alt="carte2">
-                <span><?= $carte_boss2 ?></span>
             </button>
+            <span><?= $carte_boss2 ?></span>
         </form>
     </section>  
 <?php
@@ -136,6 +137,9 @@ else {
     <section class="carte_debloquer">
         <form action="">
             <h2>A débloquer</h2>
+            <button>
+                <img src="../assets/images/lock_card.png" alt="to_unlock" height="300px" width="200px" >
+            </button>
             <button>
                 <img src="../assets/images/lock_card.png" alt="to_unlock" height="300px" width="200px" >
             </button>
