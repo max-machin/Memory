@@ -1,5 +1,5 @@
 <?php
-
+ 
 require_once "Database.php";
 
 function valid_data($données)
@@ -93,7 +93,20 @@ class User extends Database{
         return $data;
     }
 
-    
+    public function ChangeDosCarte($image_dos){
+        $update = "UPDATE utilisateurs SET image_dos = ? WHERE id = ? ";
+        $exec_update = $this->bdd->prepare($update);
+        $exec_update->execute([$image_dos, $_SESSION['user_data']['id']]);
+    }
+
+    public function AfficherDosCarte(){
+        $select = "SELECT image_dos FROM utilisateurs WHERE id = ? ";
+        $exec_select = $this->bdd->prepare($select);
+        $exec_select->execute([$_SESSION['user_data']['id']]);
+        $resultat = $exec_select->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultat;
+    }
 }
 
 ?>
