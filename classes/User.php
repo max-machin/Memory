@@ -70,6 +70,22 @@ class User extends Database{
         
         return $resultat;
     }
+
+    public function UpdateData($login, $password){
+        $update = "UPDATE utilisateurs SET login = ? , password = ? WHERE id = ? ";
+        $exec_update = $this->bdd->prepare($update);
+        $exec_update->execute([$login, $password, $_SESSION['user_data']['id']]);
+
+        
+    }
+
+    public function ReturnNewData(){
+        $select = "SELECT * FROM utilisateurs WHERE id = ? ";
+        $exec_select = $this->bdd->prepare($select);
+        $exec_select->execute([$_SESSION['user_data']['id']]);
+        $data = $exec_select->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
 }
 
 ?>
