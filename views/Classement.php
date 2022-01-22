@@ -3,7 +3,11 @@ session_start();
 
 require "../views/require/Header.php";
 
-require_once "../controller/Controller_Classement.php";
+require_once "../classes/Score.php";
+$score = new Score();
+$top10 = $score->HallOfFame();
+
+
 
 ?>
 
@@ -14,8 +18,8 @@ require_once "../controller/Controller_Classement.php";
         <tr>
             <td>Utilisateur</td>
             <td>Score</td>
-            <td>Date</td>
             <td>Nombre de paires</td>
+            <td>Date</td>
         </tr>
     </thead>
     <tbody>
@@ -25,8 +29,8 @@ require_once "../controller/Controller_Classement.php";
         <tr>
             <td><?= $value['login'] ?></td>
             <td><?= $value['score_user'] ?></td>
-            <td><?= $value['date'] ?></td>
             <td><?= $value['nombre_paires'] ?></td>
+            <td><?= $value['date'] ?></td>
         </tr>
         <?php
             }

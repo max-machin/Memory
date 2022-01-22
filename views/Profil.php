@@ -9,6 +9,7 @@ require_once "../controller/Controller_Profil.php";
 
 <h1>Bienvenue sur votre profil <?php if(!isset($data)){ echo $_SESSION['user_data']['login'];} else { echo $data[0]['login'];} ?></h1>
 
+<section class="section_profil">
 <div>
     <h2>Modifiez vos informations</h2>
     <span><?= $message ?></span>
@@ -25,7 +26,15 @@ require_once "../controller/Controller_Profil.php";
 </div>
 
 <?php
-require_once "../controller/Controller_Score_Profil.php";
+require_once "../classes/Score.php";
+
+$id = $_SESSION['user_data']['id'];
+
+$score = new Score();
+$score_profil = $score->TroisMeilleursScores($id);
+
+
+$last_score = $score->CinqDernierScores($id);
 
 
 ?>
@@ -35,8 +44,8 @@ require_once "../controller/Controller_Score_Profil.php";
         <thead>
             <tr>
                 <td>Score</td>
-                <td>Date</td>
                 <td>Nombre de paires</td>
+                <td>Date</td>
             </tr>
         </thead>
         <tbody>
@@ -45,8 +54,8 @@ require_once "../controller/Controller_Score_Profil.php";
                 ?>
             <tr>
                 <td><?= $value['score_user']?></td>
-                <td><?= $value['date']?></td>
                 <td><?= $value['nombre_paires']?></td>
+                <td><?= $value['date']?></td>
             </tr>
             <?php
             }
@@ -61,8 +70,8 @@ require_once "../controller/Controller_Score_Profil.php";
         <thead>
             <tr>
                 <td>Score</td>
-                <td>Date</td>
                 <td>Nombre de paires</td>
+                <td>Date</td>
             </tr>
         </thead>
         <tbody>
@@ -71,8 +80,8 @@ require_once "../controller/Controller_Score_Profil.php";
                 ?>
             <tr>
                 <td><?= $value['score_user']?></td>
-                <td><?= $value['date']?></td>
                 <td><?= $value['nombre_paires']?></td>
+                <td><?= $value['date']?></td>
             </tr>
             <?php
             }
@@ -80,8 +89,19 @@ require_once "../controller/Controller_Score_Profil.php";
         </tbody>
     </table>
 </div>
+</section>
 
-
+<section class="section_carte">
+    <form action="" method="post">
+        <button name="dos1"><img src="../assets/images/dos1.png" height="300px" width="200px" alt="carte1"></button>
+        <span><?= $carte_choisie1 ?></span>
+    </form>
+    <form action="" method="post">
+        <button name="dos2"><img src="../assets/images/dos2.png" height="300px" width="200px" alt="carte2"></button>
+        <span><?= $carte_choisie2 ?></span>
+    </form>
+    
+</section>
             
 <?php
 
