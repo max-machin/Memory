@@ -82,7 +82,7 @@ if (isset($_POST['dos1'])){
     $carte_boss2 = "Sélectionnée";
     $carte_boss = "";
 }
-
+  
 
 
 

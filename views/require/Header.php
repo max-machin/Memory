@@ -17,13 +17,13 @@
     ?>
     <header>
         <nav>
-            <a href="Accueil.php"><img src="../assets/images/logo.png" alt="logo_nav" height="128px" width="130px"></a>
+            <a href="Accueil.php"><img src="../assets/images/logo.png" alt="logo_nav" height="110px" width="120px"></a>
 
             <ol>
-                <li><a href="Memory.php">Memory</a></li>
-                <li><a href="Classement.php">Hall of fame</a></li>
-                <li><a href="Profil.php"><i class="far fa-user"></i></a></li>
-                <li><a class="deco" href="Deconnexion.php">Deconnexion</a></li>
+                <li><a href="Memory.php">Memory <i class="fas fa-brain"></i></a></li>
+                <li><a href="Classement.php">Hall of fame <i class="fas fa-medal"></i></a></li>
+                <li><a href="Profil.php">Profil <i class="far fa-user"></i></a></li>
+                <li><a class="deco" href="Deconnexion.php">Deconnexion <i class="far fa-times-circle"></i></a></li>
             </ol>
         </nav>
     </header>
@@ -32,11 +32,11 @@
     ?>
     <header>
         <nav>
-        <a href="Accueil.php"><img src="../assets/images/logo.png" alt="logo_nav" height="128px" width="130px"></a>
+        <a href="Accueil.php"><img src="../assets/images/logo.png" alt="logo_nav" height="110px" width="120px"></a>
 
             <ol>
-                <li><a href="Memory.php">Memory</a></li>
-                <li><a href="Classement.php">Hall of fame</a></li>
+                <li><a href="Memory.php">Memory <i class="fas fa-brain"></i></a></li>
+                <li><a href="Classement.php">Hall of fame <i class="fas fa-medal"></i></a></li>
                 <li><a href="Connexion.php">Connexion</a></li>
                 <li><a href="Inscription.php">Inscription</a></li>
             </ol>

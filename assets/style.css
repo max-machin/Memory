@@ -5,67 +5,604 @@
 body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     text-align: center;
-    background: url(images/backgroung.jpg) no-repeat center fixed;
+    background: url(images/background.jpg) no-repeat center fixed;
     background-size:cover;
 }
 
-/* Accueil */
+/*--------------------- Header ----------------------*/
 
 nav {
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
     display: flex;
+    height: 16vh;
     justify-content: space-between;
-    background-color:rgba(68, 68, 68, 0.63);
+    backdrop-filter: blur(1.3px);
+    box-shadow: rgba(44, 78, 52, 0.09) 0px 2px 1px,
+     rgba(0, 0, 0, 0.171) 0px 4px 5px, 
+     rgba(0, 0, 0, 0.199) 0px 8px 10px,
+     rgba(0, 0, 0, 0.09) 0px 3px 10px; 
 }
 
 nav ol {
     display: flex;
-    gap: 10vh;
-    margin-top: 3%;
-    margin-right: 5%;
+    gap: 8vh;
+    margin:auto;
+    margin-right: 2%;
     color: white;
     list-style: none;
+    
 }
 
-nav ol li a{
-    color: white;
+nav ol li a {
+    color: rgb(209, 209, 209);
     text-decoration: none;
     font-family: 'Cinzel Decorative';
+    background: linear-gradient(to top, rgb(0, 253, 89) 0%, rgb(0, 253, 89) 10%, transparent 10.01%) no-repeat left bottom/ 0 100%;
+    background-size: 0 100%;
+    transition: background-size .5s;
 }
 
 nav ol li a:hover {
+    transition: .5s ease-out;
     color: rgb(0, 253, 89);
-    transition: 0.7s ease-out;
-    text-shadow:
-    0px 7px 5px rgba(0,0,0,0.215),
-    0px 12px 2px rgba(0,0,0,0.295),
-    0px 16px 15px rgba(0, 0, 0, 0.295);
+    text-shadow: 0 0 5px rgba(0, 255, 89, 0.87);
+    background-size: 100% 100%;
+}
+
+.deco {
+    background: linear-gradient(to top, rgb(255, 25, 64) 0%, rgb(255, 25, 64) 10%, transparent 10.01%) no-repeat left bottom/ 0 100%;
+    background-size: 0 100%;
+    transition: background-size .5s;
 }
 
 .deco:hover {
+    transition: .5s ease-out;
     color: rgb(255, 25, 64);
-    transition: 0.7s ease-out;
-    text-shadow:
-    0px 7px 5px rgba(0,0,0,0.215),
-    0px 12px 2px rgba(0,0,0,0.295),
-    0px 16px 15px rgba(0, 0, 0, 0.295);
+    text-shadow: 0 0 10px rgb(255, 25, 64);
+    background-size: 100% 100%;
 }
+
+/*---------------- CSS Footer --------------------*/
+
+footer {
+    padding-top: 3%;
+    margin-top: 7%;
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    backdrop-filter: blur(2px);
+}
+
+footer h2 {
+    font-family: "Cinzel Decorative";
+    font-size: 20px;
+    color: white;
+}
+
+footer a{
+    gap: 4vh;
+    font-family: "Papyrus";
+    text-decoration:none;
+    color: rgb(168, 168, 168);
+    font-size: 18px;
+    background: linear-gradient(to top, rgb(0, 253, 89) 0%, rgb(0, 253, 89) 10%, transparent 10.01%) no-repeat left bottom/ 0 100%;
+    background-size: 0 100%;
+    transition: background-size .5s;
+}
+
+footer a:hover {
+    transition: .5s ease-out;
+    color: rgb(0, 253, 89);
+    text-shadow: 0 0 5px rgba(0, 255, 89, 0.87);
+    background-size: 100% 100%;
+}
+
+footer ol {
+    list-style:none;
+    text-align:left;
+}
+
+.bloc_footer {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.flex_footer ol {
+    display: flex;
+    list-style: none;
+    gap: 4vh;
+}
+
+.flex_footer ol a {
+    color: rgb(146, 146, 146);
+    font-size:5vh;
+}
+
+.flex_footer ol a:hover {
+    transition: 0.7s ease-out;
+    color: rgba(0, 255, 89, 0.87);
+    text-shadow: 0 0 10px rgba(0, 255, 89, 0.637);
+    background-size: 0 100%;
+}
+
+.copyright {
+    text-align: left;
+    margin: auto;
+    color: rgba(221, 221, 221, 0.438);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:2vh;
+}
+
+
+/*---------------- CSS général -------------------*/
 
 h1 {
     font-family: 'Cinzel Decorative';
     font-size: 7vh;
+    color: white;
     text-shadow: 0px 14px 10px rgba(0, 0, 0, 0.247),
     0px 24px 2px rgba(0,0,0,0.1),
     0px 34px 30px rgba(0,0,0,0.1);;
 }
 
 h1 span {
-    color: rgb(196, 196, 164);
+    color: rgb(0, 253, 89);
 }
 
-h2 {
-    font-family:'';
+/*----------------- CSS Accueil -------------------*/
+
+.section_accueil {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 6%;
 }
+
+.section_accueil div {
+    backdrop-filter: blur(2px);
+    background: linear-gradient(#a1a1a14f, #68686844, #127a1b23);
+    padding: 2vh;
+    border-radius: 4vh;
+    box-shadow: rgba(44, 78, 52, 0.09) 0px 2px 1px,
+     rgba(0, 0, 0, 0.171) 0px 4px 5px, 
+     rgba(0, 0, 0, 0.11) 0px 8px 10px,
+     rgba(0, 0, 0, 0.09) 0px 3px 10px; 
+}
+
+.section_accueil i {
+    font-size: 15vh;
+    padding: 3vh;
+    color: rgb(20, 20, 20);
+}
+
+.section_accueil div h2 {
+    font-family: 'Papyrus';
+    font-weight: bold;
+    font-size: 5vh;
+}
+
+.section_accueil div p {
+    font-family: "Papyrus";
+    font-size: 3vh;
+    font-weight: bold;
+    color: white;
+}
+
+.member_accueil {
+    font-family: "Papyrus";
+    font-weight: bold;
+    color: red;
+}
+
+.section_accueil table {
+    font-family: "JonahAFYL";
+    font-weight: bold;
+    margin: auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+.section_accueil table thead {
+    border-spacing: 2vh;
+    background: black;
+    color: white;
+}
+.section_accueil table tbody tr:nth-child(even) {
+    background: rgba(161, 161, 161, 0.671);
+}
+.section_accueil table tbody tr:nth-child(odd) {
+    background: rgba(128, 128, 128, 0.671);
+}
+.section_accueil tr {
+    border: 1px solid rgb(65, 65, 65);
+}
+
+.section_accueil img {
+    border-radius: 4vh;
+}
+
+.register_accueil {
+    margin: auto;
+}
+
+.register_accueil div{
+    transform: rotate(-12deg);
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    max-width: 650px;
+    backdrop-filter: blur(1px);
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    padding: 2vh;
+    border-radius: 1vh;
+    box-shadow:rgba(44, 78, 52, 0.09) 0px 2px 1px,
+     rgba(0, 0, 0, 0.26) 0px 4px 5px, 
+     rgba(0, 0, 0, 0.267) 0px 8px 10px,
+     rgba(0, 0, 0, 0.09) 0px 3px 10px; 
+}
+.register_accueil div:hover {
+    transition: .7s ease-out;
+    transform:rotate(0deg);
+}
+
+.register_accueil h2 {
+    color: white;
+    font-size: 5vh;
+}
+
+.register_accueil a  {
+    font-size: 2.5vh;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(to top, rgb(0, 253, 89) 0%, rgb(0, 253, 89) 10%, transparent 10.01%) no-repeat left bottom/ 0 100%;
+    background-size: 100% 100%;
+    transition: background-size .5s;
+}
+
+.register_accueil p a:hover {
+    transition: .5s ease-out;
+    color: rgb(0, 253, 89);
+    text-shadow: 0 0 5px rgba(0, 255, 89, 0.87);
+    background-size: 0% 100%;
+}
+
+.register_accueil p, h2 {
+    font-family: "Papyrus";
+    margin: auto;
+}
+/*----------------- CSS Accueil connecté --------------------*/
+
+.section_accueil_co {
+    width: 60%;
+    margin: 0 auto;
+    backdrop-filter: blur(2px);
+    background: linear-gradient(#a1a1a14f, #68686844, #127a1b23);
+    padding: 4vh;
+    border-radius: 4vh;
+    box-shadow: rgba(44, 78, 52, 0.09) 0px 2px 1px,
+     rgba(0, 0, 0, 0.171) 0px 4px 5px, 
+     rgba(0, 0, 0, 0.11) 0px 8px 10px,
+     rgba(0, 0, 0, 0.09) 0px 3px 10px; 
+}
+
+.titre_co {
+    font-family: "Papyrus";
+}
+
+.titre_co a {
+    color: rgb(228, 3, 3);
+}
+
+.section_accueil_co h2 {
+    font-size: 4.5vh;
+}
+
+.section_accueil_co h2 a {
+    color: rgb(0, 253, 89);
+    text-decoration: none;
+}
+
+.section_accueil_co h2 a:hover {
+    transition: .5s ease-out;
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 255, 89, 0.87);
+}
+
+.section_accueil_co h3 {
+    color: white;
+    font-size: 3.4vh;
+    font-family: "Papyrus";
+}
+
+.section_accueil_co table {
+    font-family: "JonahAFYL";
+    font-weight: bold;
+    margin: auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+.section_accueil_co table thead {
+    border-spacing: 2vh;
+    background: black;
+    color: white;
+}
+.section_accueil_co table tbody tr:nth-child(even) {
+    background: rgba(161, 161, 161, 0.671);
+}
+.section_accueil_co table tbody tr:nth-child(odd) {
+    background: rgba(128, 128, 128, 0.671);
+}
+.section_accueil_co tr {
+    border: 1px solid rgb(65, 65, 65);
+}
+
+/*----------------- CSS Classement --------------------*/
+
+.classement_table {
+    border-radius: 7px;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    backdrop-filter: blur(1px);
+    padding: 4vh;
+}
+
+.classement_table h2 {
+    margin-bottom: 2vh;
+    color: rgb(0, 253, 89);
+}
+
+.classement_table table {
+    width: 90%;
+    border-collapse: collapse;
+    color: white;
+    margin: auto;
+    
+}
+
+.classement_table table thead {
+    font-family: "Papyrus";
+    height:5vh;
+    background-color: rgba(0, 255, 89, 0.856);
+    box-shadow: 0 0 5px rgba(0, 255, 89, 0.87);
+}
+
+.classement_table tbody tr {
+    font-family:"Papyrus";
+    height: 4vh;
+}
+
+.classement_table tbody tr:nth-child(odd) {
+    background: linear-gradient(#7575756e, #6e6e6e65, #72727259);
+}
+
+.classement_table tbody tr:hover {
+    box-shadow: 0 0 7px rgba(0, 255, 89, 0.925);
+}
+/*----------------- CSS Inscription --------------------*/
+
+.container_in {
+    margin-top: 5%;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_in h2 {
+    padding-top: 2vh;
+    margin-bottom: 3vh;
+}
+
+.form_in{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.input_in {
+    width: 120%;
+    font-family: "Papyrus";
+    font-size:2.2vh;
+    margin: auto;
+    color: white;
+    background: linear-gradient(to top, rgb(0, 253, 89) 0%, rgb(0, 253, 89) 8%, transparent 8.01%) no-repeat left bottom/ 0 100%;
+    background-size: 0 100%;
+    transition: background-size .5s;
+    border: none;
+}
+
+.input_in:nth-child(2){
+    margin-top: 2vh;
+}
+
+.input_in:focus {
+    border: none;
+    outline: none;
+    transition: 1s;
+    background-size: 100% 100%;
+}
+
+.form_in span {
+    font-family: "Papyrus";
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    padding-bottom: 2vh;
+    margin-bottom: 3vh;
+    width: 100%;
+}
+
+.container_in .box_in {
+    position:relative;
+    width: 500px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    
+}
+
+.container_in .box_in:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 6px solid rgba(255, 255, 255, 0.788);
+    background: rgba(0, 0, 0, 0.788);
+    filter: url(#wavy2);
+    /* box-shadow: 0 0 7px rgba(0, 255, 89, 0.925); */
+}
+
+.container_in .box_in:hover:before {
+    transition: 1s ease-in-out;
+    border: 6px solid rgb(0, 253, 89);
+}
+
+.container_in .box_in .content_in {
+    position: absolute;
+    padding: 20px;
+    text-align: center;
+    transition: 0.5s ;
+    display: flex;
+    flex-direction: column;
+}
+
+.sub_in {
+    font-family: "Papyrus";
+    font-weight: bold;
+    border:none;
+    border-radius: 3px;
+    font-size:2.2vh;
+    padding: 0.7vh;
+}
+
+.sub_in:hover {
+    transition: 0.5s ease-out;
+    border: none;
+    background: rgb(0, 253, 89);
+}
+
+/*----------------- CSS Connexion --------------------*/
+
+.container {
+    margin-top: 5%;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .box  h2 {
+    padding-top: 2vh;
+}
+
+.form_connexion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    gap: 2vh;
+}
+
+.form_connexion span {
+    font-family: "Papyrus";
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    padding-bottom: 5vh;
+    width: 100%;
+}
+
+::placeholder {
+    color: rgb(240, 240, 240);
+}
+
+.form_connexion input {
+    margin-top: 3.5vh;
+}
+
+.input_conn {
+    font-family: "Papyrus";
+    font-size:2.2vh;
+    width: 100%;
+    margin: auto;
+    color: white;
+    background: linear-gradient(to top, rgb(0, 253, 89) 0%, rgb(0, 253, 89) 8%, transparent 8.01%) no-repeat left bottom/ 0 100%;
+    background-size: 0 100%;
+    transition: background-size .5s;
+    border: none;
+}
+
+.input_conn:focus {
+    border: none;
+    outline: none;
+    transition: 1s;
+    background-size: 100% 100%;
+}
+
+.container .box {
+    position:relative;
+    width: 500px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    
+}
+
+.container .box:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 6px solid rgba(255, 255, 255, 0.788);
+    background: rgba(0, 0, 0, 0.788);
+    filter: url(#wavy);
+    /* box-shadow: 0 0 7px rgba(0, 255, 89, 0.925); */
+}
+
+.container .box:hover:before {
+    transition: 1s ease-in-out;
+    border: 6px solid rgb(0, 253, 89);
+}
+
+svg {
+    width: 0;
+    height: 0;
+}
+
+.container .box .content {
+    position: absolute;
+    padding: 20px;
+    text-align: center;
+    transition: 0.5s ;
+    display: flex;
+    flex-direction: column;
+}
+
+.submit_conn {
+    font-family: "Papyrus";
+    font-weight: bold;
+    border:none;
+    border-radius: 3px;
+    font-size:2.2vh;
+    padding: 0.7vh;
+}
+.submit_conn:hover {
+    transition: 0.5s ease-out;
+    border: none;
+    background: rgb(0, 253, 89);
+}
+
+/*----------------- CSS Plateau --------------------*/
 
 .plateau_form button {
     background: transparent;

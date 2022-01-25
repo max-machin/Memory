@@ -56,6 +56,15 @@ class Score extends DataBase {
         return $count;
     }
     
+    public function AccueilClassement(){
+        $select = "SELECT s.score_user, s.date, s.nombre_paires, u.login FROM score AS s INNER JOIN utilisateurs AS u ON s.id_utilisateur = u.id ORDER BY score_user ASC LIMIT 5 ";
+        $exec_select = $this->bdd->prepare($select);
+        $exec_select->execute();
+
+        $resultat = $exec_select->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultat;
+    }
 }
 
 ?>
