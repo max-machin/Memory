@@ -32,10 +32,11 @@ class User extends Database{
     
     public function Register($login, $password){
 
-        $insert = "INSERT INTO utilisateurs (login, password) VALUES (:login, :password)";
+        $insert = "INSERT INTO utilisateurs (login, password, image_dos) VALUES (:login, :password, :image_dos)";
         $exec_insert = $this->bdd->prepare($insert);
         $exec_insert->bindValue(':login' , $login, PDO::PARAM_STR);
         $exec_insert->bindValue(':password' , $password, PDO::PARAM_STR);
+        $exec_insert->bindValue(':image_dos' , "../assets/images/dos1.png", PDO::PARAM_STR);
         $exec_insert->execute();
     }
 

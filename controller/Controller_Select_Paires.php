@@ -1,5 +1,7 @@
 <?php
 
+$message = "";
+
 //Si l'utilisateur a choisit son nombre de carte
 if (isset($_POST['choix_paires'])){
     unset($_SESSION['comparer']);
@@ -20,7 +22,7 @@ if (isset($_POST['choix_paires'])){
 
     //Sinon on détruit la session si le nombre n'a pas été selectionné
     } else {
-        echo "Veuillez sélectionner un nombre valide";
+        $message = "Veuillez sélectionner un nombre valide";
         unset($_SESSION['plateau']);
     }
 } 

@@ -20,24 +20,31 @@ require "../controller/Affichage_Memory.php";
     <title>Memory</title>
 </head>
 <body>
+    
     <main>
-
+        <a class="home" href="Accueil.php">🏠</a>
         <!-- Formulaire de choix du nombre de paires -->
-        <form action="" method="post" style="display: <?= $_SESSION['display_select'] ?>">
-            <select name="select_nombre_paires" id="">
-            <option value="0" selected>Nombre de pairs</option>
-                <?php
-                    for($i=3; $i <= 12; $i++){
-                        echo '<option value='.$i.'>'.$i.'</option>';
-                    }  
-                ?>
-            </select>
-            <input type="submit" name="choix_paires">
-        </form>
-
+        <div class="form_select" style="display: <?= $_SESSION['display_select'] ?>">
+        
+            <form action="" method="post">
+                <label for="select_paires"><i class="fas fa-home"></i>Choisissez un nombre de cartes</label><br>
+                <select name="select_nombre_paires" id="select_paires">
+                    <option value="0" selected>Nombre de cartes</option>
+                    <?php
+                        for($i=3; $i <= 12; $i++){
+                            $cartes = $i * 2;
+                            echo '<option value='.$i.'>'.$cartes.'</option>';
+                        }  
+                    ?>
+                </select><br>
+                <span><?= $message ?></span><br>
+                <input type="submit" name="choix_paires" value="Jouez">
+            </form>
+        </div>
         <!-- Compteur de comparaison de carte  -->
         <div class="compteur_coup" style="display: <?= $_SESSION['display1'] ?>">
-            <p>Compteur : <?= $_SESSION['compteur'] ?></p>
+            <p>Compteur de coup</p>
+            <p class="count"><?= $_SESSION['compteur'] ?></p>
         </div>
 
         <?php
@@ -46,7 +53,7 @@ require "../controller/Affichage_Memory.php";
                 <!-- Button pour stopper une partie en cours -->
                 <div class="stop_partie" style="display:<?= $_SESSION['display1'] ?>;">
                     <form method="post" action="">
-                        <input name="stop_partie" type="submit" value="Arrêter partie">
+                        <input name="stop_partie" type="submit" value="❌">
                     </form>
                 </div>
         <?php
@@ -57,23 +64,21 @@ require "../controller/Affichage_Memory.php";
         ?>
         <!-- Affichage de fin de partie   -->
         <div class="bloc_fin_partie">
-            <p>Partie terminée!</p>
+            <h2>Partie terminée!</h2>
             <p>Votre score : <?= $score ?></p>
             <a href="Profil.php">Votre profil</a>
             <a href="Accueil.php">Accueil</a>
             <a href="Classement.php">Hall of fame</a>
             <form method="post" action="">
-                <button name="relancer">Relancer partie</button>
+                <button class="restart" name="relancer">Relancer partie</button>
             </form>
         </div>
         <?php
-            }
-        ?>
-
-    <!-- Bloc contenant l'affichage du jeux en dynamique dans le fichier views/Plateau.php -->
-    <?php 
+        }
+    
+        // Bloc contenant l'affichage du jeux en dynamique dans le fichier views/Plateau.php 
         if(isset($_SESSION['nombre_paires'])){
-    ?>
+        ?>
 
         <section class="display_jeux" style="display: <?= $_SESSION['display1'] ?>;">
             <div class="bloc_jeux<?= $_SESSION['nombre_paires'] ?>">

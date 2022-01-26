@@ -6,15 +6,18 @@ require_once "require/Header.php";
 if (isset($_SESSION['user_data'])){
 ?>
     <h1 class="titre_co">Bienvenue sur votre compte <a><?= $_SESSION['user_data']['login'] ?></a></h1>
+    
     <section class="section_accueil_co">
         <div>
             <h2>Depuis votre <a href="Profil.php">profil</a> vous pouvez :</h2>
             <h3>Personnalisez vos cartes</h3>
+            <h3><i class="fas fa-long-arrow-alt-down"></i></h3>
             <img src="../assets/images/dos3.png" height="220px" width="160px">
             <img src="../assets/images/dos2.png" height="220px" width="160px">
             <img src="../assets/images/dos1.png" height="220px" width="160px">
             <img src="../assets/images/dos2.gif" height="220px" width="160px">
             <h3>Retrouvez vos meilleurs et derniers scores</h3>
+            <h3><i class="fas fa-long-arrow-alt-down"></i></h3>
             <div>
                 <table>
                     <thead>
@@ -42,10 +45,10 @@ if (isset($_SESSION['user_data'])){
                         </tr>
                     </tbody>
                 </table>
-        </div>
-        <!-- <div>
-
-        </div> -->
+            </div>
+            <h3>Empressez-vous de rejoindre le Hall of Fame ! </h3>
+            <h3><i class="fas fa-long-arrow-alt-down"></i></h3>
+            <p><a href="Memory.php"> Lancer une partie</a></p>
     </section>
 <?php
 } else { 

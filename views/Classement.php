@@ -21,7 +21,7 @@ $top10 = $score->HallOfFame();
                 <td>Date</td>
             </tr>
         </thead>
-        <tbody>
+        <tbody> 
             <?php
                 foreach($top10 as $key => $value){
             ?>

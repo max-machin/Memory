@@ -149,6 +149,14 @@ h1 span {
     color: rgb(0, 253, 89);
 }
 
+::placeholder {
+    color: grey;
+}
+
+.mess {
+    color: green;
+}
+
 /*----------------- CSS Accueil -------------------*/
 
 .section_accueil {
@@ -161,7 +169,7 @@ h1 span {
     backdrop-filter: blur(2px);
     background: linear-gradient(#a1a1a14f, #68686844, #127a1b23);
     padding: 2vh;
-    border-radius: 4vh;
+    border-radius: 7px;
     box-shadow: rgba(44, 78, 52, 0.09) 0px 2px 1px,
      rgba(0, 0, 0, 0.171) 0px 4px 5px, 
      rgba(0, 0, 0, 0.11) 0px 8px 10px,
@@ -217,7 +225,7 @@ h1 span {
 }
 
 .section_accueil img {
-    border-radius: 4vh;
+    border-radius: 7px;
 }
 
 .register_accueil {
@@ -278,7 +286,7 @@ h1 span {
     backdrop-filter: blur(2px);
     background: linear-gradient(#a1a1a14f, #68686844, #127a1b23);
     padding: 4vh;
-    border-radius: 4vh;
+    border-radius: 7px;
     box-shadow: rgba(44, 78, 52, 0.09) 0px 2px 1px,
      rgba(0, 0, 0, 0.171) 0px 4px 5px, 
      rgba(0, 0, 0, 0.11) 0px 8px 10px,
@@ -291,6 +299,24 @@ h1 span {
 
 .titre_co a {
     color: rgb(228, 3, 3);
+}
+
+.section_accueil_co p a {
+    font-family: "Papyrus";
+    font-weight: bold;
+    font-size: 3vh;
+    margin-top: 2vh;
+    background: transparent;
+    padding: 1vh;
+    color: rgb(255, 116, 2);
+    border: 1px solid rgb(255, 116, 2);
+}
+
+.section_accueil_co p a:hover {
+    transition: .4s ease-out;
+    box-shadow: 0 0 10px rgb(255, 82, 2),0 0 14px rgb(255, 82, 2),0 0 20px rgb(255, 137, 2), 0 0 25px rgb(255, 188, 2);
+    text-shadow: 0 0 15px rgb(255, 116, 2);
+    color: rgb(255, 116, 2);
 }
 
 .section_accueil_co h2 {
@@ -363,6 +389,7 @@ h1 span {
 }
 
 .classement_table table thead {
+    font-weight: bold;
     font-family: "Papyrus";
     height:5vh;
     background-color: rgba(0, 255, 89, 0.856);
@@ -404,19 +431,16 @@ h1 span {
 }
 
 .input_in {
-    width: 120%;
+    width: 100%;
     font-family: "Papyrus";
     font-size:2.2vh;
     margin: auto;
     color: white;
+    text-align: center;
     background: linear-gradient(to top, rgb(0, 253, 89) 0%, rgb(0, 253, 89) 8%, transparent 8.01%) no-repeat left bottom/ 0 100%;
     background-size: 0 100%;
     transition: background-size .5s;
     border: none;
-}
-
-.input_in:nth-child(2){
-    margin-top: 2vh;
 }
 
 .input_in:focus {
@@ -430,8 +454,7 @@ h1 span {
     font-family: "Papyrus";
     color: rgb(255, 0, 0);
     font-weight: bold;
-    padding-bottom: 2vh;
-    margin-bottom: 3vh;
+    padding-bottom: 1vh;
     width: 100%;
 }
 
@@ -507,26 +530,22 @@ h1 span {
     display: flex;
     flex-direction: column;
     margin-top: 10%;
-    gap: 2vh;
 }
 
-.form_connexion span {
+span {
     font-family: "Papyrus";
     color: rgb(255, 0, 0);
     font-weight: bold;
-    padding-bottom: 5vh;
+    padding-bottom: 3vh;
     width: 100%;
 }
 
-::placeholder {
-    color: rgb(240, 240, 240);
-}
-
 .form_connexion input {
-    margin-top: 3.5vh;
+    margin-top: 2vh;
 }
 
 .input_conn {
+    text-align: center;
     font-family: "Papyrus";
     font-size:2.2vh;
     width: 100%;
@@ -601,85 +620,132 @@ svg {
     border: none;
     background: rgb(0, 253, 89);
 }
+/*----------------- CSS Profil --------------------*/
 
-/*----------------- CSS Plateau --------------------*/
+.profil_div {
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    backdrop-filter: blur(2px);
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    padding: 4vh;
+    border-radius: 7px;
+    box-shadow: rgba(44, 78, 52, 0.09) 0px 2px 1px,
+     rgba(0, 0, 0, 0.171) 0px 4px 5px, 
+     rgba(0, 0, 0, 0.11) 0px 8px 10px,
+     rgba(0, 0, 0, 0.09) 0px 3px 10px; 
+}
 
-.plateau_form button {
-    background: transparent;
+.profil_div:hover {
+    transition: .5s ease-out;
+    box-shadow: 0 0 8px rgb(0, 253, 89);
+}
+
+.titre_profil {
+    color: rgb(0, 253, 89);
+}
+
+.input_profil {
+    color: rgb(155, 155, 155);
+    font-family:"Papyrus";
+    font-size: 2.5vh;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(to top, rgb(0, 253, 89) 0%, rgb(0, 253, 89) 8%, transparent 8.01%) no-repeat left bottom/ 0 100%;
+    background-size: 100% 100%;
+    transition: background-size .6s;
     border: none;
 }
 
-
-.bloc_jeux3 {
-    margin-right: 30%;
-    margin-left: 30%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 2vh;
-    justify-content: center;
+.input_profil:focus {
+    outline: none;
+    transition: .6s ease-out;
+    background-size: 0% 100%;
 }
 
-.bloc_jeux4, 
-.bloc_jeux8 {
-    margin-right: 30%;
-    margin-left: 30%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 2vh;
-    justify-content: center;
+.classement_table_profil {
+    border-radius: 7px;
+    width: 35%;
+    max-width: 900px;
+    margin: auto;
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    backdrop-filter: blur(1px);
+    padding: 4vh;
+    box-shadow: rgba(44, 78, 52, 0.09) 0px 2px 1px,
+     rgba(0, 0, 0, 0.26) 0px 5px 5px, 
+     rgba(0, 0, 0, 0.205) 0px 8px 10px,
+     rgba(0, 0, 0, 0.219) 0px 7px 10px;
 }
 
-.bloc_jeux5,
-.bloc_jeux7,
-.bloc_jeux10{
-    margin-right: 25%;
-    margin-left: 25%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    row-gap: 2vh;
-    justify-content: center;
+.classement_table_profil h2 {
+    margin-bottom: 2vh;
+    color: rgb(0, 253, 89);
 }
 
-.bloc_jeux6,
-.bloc_jeux9,
-.bloc_jeux11,
-.bloc_jeux12 {
-    margin-right: 20%;
-    margin-left: 20%;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    row-gap: 2vh;
-    justify-content: center;
+.classement_table_profil table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+    margin: auto;
+    
 }
 
-.stop_partie {
-    margin-bottom: 3vh;
+.classement_table_profil table thead {
+    font-weight: bold;
+    font-family: "Papyrus";
+    height:5vh;
+    background-color: rgba(0, 255, 89, 0.856);
+    box-shadow: 0 0 5px rgba(0, 255, 89, 0.87);
 }
 
-.bloc_fin_partie {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 38%;
-    right: 38%;
-    margin-top: 10%;
-    background-color: rgba(88, 88, 88, 0.685);
+.classement_table_profil tbody tr {
+    font-family:"Papyrus";
+    height: 4vh;
+}
+
+.classement_table_profil tbody tr:nth-child(odd) {
+    background: linear-gradient(#7575756e, #6e6e6e65, #72727259);
+}
+
+.classement_table_profil tbody tr:hover {
+    box-shadow: 0 0 7px rgba(0, 255, 89, 0.925);
 }
 
 .section_profil {
+    margin-top: 5%;
     display: flex;
     justify-content: space-evenly;
 }
 
-
 .section_carte_profil {
+    border-radius: 7px;
+    max-width: 60%;
+    width: 100%;
+    margin: auto;
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     
 }
+
+.section_carte_profil h2 {
+    margin-top: 4%;
+    color: rgb(0, 253, 89);
+    font-size: 4.8vh;
+}
+
+.classique {
+    font-family: "Papyrus";
+    font-size: 3vh;
+    color: white;
+    margin-bottom: 4%;
+}
+
 .section_carte_profil section {
     display: flex;
     justify-content: center;
+    margin-bottom: 3%;
 }
 
 .section_carte_profil form {
@@ -691,4 +757,272 @@ svg {
     background: transparent ;
     border: none;
 }
+
+.legendary {
+    color: yellow;
+    font-family: "Papyrus";
+    font-size: 3vh;
+    margin-bottom: 4%;
+}
+
+.section_carte_profil span {
+    color: yellow;
+    font-family: "Papyrus";
+    font-size: 2vh;
+    margin-bottom: 4%;
+}
+
+label {
+    font-family: "Papyrus";
+    font-weight: bold;
+    color: white;  
+}
+
+/*----------------- CSS Plateau --------------------*/
+.form_select {
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    max-width:400px;
+    max-height: 250px;
+    height: 100%;
+    margin:auto;  
+    margin-top: 10%;
+    border-radius: 7px;
+    padding: 3vh;
+}
+
+.form_select:hover {
+    transition: .5s ease-out;
+    box-shadow: 0 0 7px rgb(255, 116, 2);
+}
+
+.form_select label {
+    font-size: 3.5vh;
+    border-radius: 7px;
+}
+
+.form_select select, .form_select option {
+    outline: none;
+    border: none;
+    font-family: "Papyrus";
+    font-weight: bold;
+    background: rgb(170, 170, 170);
+}
+
+.form_select input {
+    font-family: "Papyrus";
+    font-weight: bold;
+    font-size: 3vh;
+    margin-top: 2vh;
+    background: transparent;
+    color: white;
+    border: 1px solid rgb(255, 116, 2);
+}
+
+.form_select input:hover {
+    transition: .4s ease-out;
+    box-shadow: 0 0 10px rgb(255, 82, 2),0 0 14px rgb(255, 82, 2),0 0 20px rgb(255, 137, 2), 0 0 25px rgb(255, 188, 2);
+    text-shadow: 0 0 15px rgb(255, 116, 2);
+    color: rgb(255, 116, 2);
+}
+
+.form_select select {
+    font-size: 2.2vh;
+    margin-top: 2.3vh;
+    background: rgb(255, 116, 2);
+}
+
+.carte_face {
+    z-index: 99;
+}
+
+.carte_face button {
+    background: transparent;
+    border: none;
+}
+
+.carte_face button:focus {
+    animation-duration: .3s;
+    animation-name: slideout;
+}
+
+
+@keyframes slideout {
+    from {
+        transform: rotate3d(0,1,0,0deg);
+    }
+    to {
+        transform: rotate3d(0,1,0, 80deg);
+    }
+}
+
+.home {
+    position: absolute;
+    top: 0;
+    left: 3vh;
+    margin-top:.5%;
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    padding:2.5vh;
+    border-radius: 6vh;
+    font-size:3.5vh;
+}
+
+.home:hover {
+    transition: .5s ease-out;
+    box-shadow: 0 0 7px rgb(255, 116, 2);
+}
+
+.stop_partie {
+    top: 0;
+    position: absolute;
+    right: 3vh;
+    margin-top:.5%;
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    padding:1.5vh;
+    border-radius: 10vh;
+}
+
+.stop_partie:hover {
+    transition: .5s ease-out;
+    box-shadow: 0 0 7px rgb(255, 2, 2);
+}
+
+.stop_partie input {
+    font-size:3vh;
+    border: none;
+    background: transparent;
+}
+
+.compteur_coup {
+    position: absolute;
+    margin-top: 12%;
+    left: 3vh;
+    font-family: "Papyrus";
+    font-weight: bold;
+    color: white;
+    font-size: 3.5vh;
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    max-width:300px;
+    padding: 1.5vh;
+    border-radius: 7px;
+}
+
+.count {
+    margin-top:-4%;
+    color: rgb(255, 116, 2);
+}
+
+.display_jeux {
+    margin-top: 5%;
+}
+
+.bloc_fin_partie {
+    z-index: 999;
+    padding: 8vh;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    margin-top: 6%;
+    background: linear-gradient(#0f0f0fd5, #202020c0, #0f0f0fd5);
+    font-size: 3vh;
+    font-family: "Papyrus";
+    font-weight: bold;
+    color: white;
+    border-radius: 7px;
+}
+
+.bloc_fin_partie:hover {
+    transition: .5s ease-out;
+    box-shadow: 0 0 7px rgb(255, 116, 2);
+}
+
+.bloc_fin_partie a {
+    text-decoration: none;
+    color: rgb(255, 116, 2);
+    margin: 4vh;
+    background: linear-gradient(to top, white 0%, white 8%, transparent 8.01%) no-repeat left bottom/ 0 100%;
+    background-size: 100% 100%;
+    transition: background-size .6s;
+}
+
+.bloc_fin_partie a:hover {
+    color: white;
+    transition: .6s ease-out;
+    background-size: 100% 100%;
+    background: linear-gradient(to top, rgb(255, 116, 2) 0%, rgb(255, 116, 2) 8%, transparent 8.01%) no-repeat left bottom/ 100% 100%;
+    text-shadow: 0 0 15px rgb(255, 116, 2);
+}
+
+.restart {
+    font-family: "Papyrus";
+    font-weight: bold;
+    font-size: 3vh;
+    margin-top: 5vh;
+    background: transparent;
+    color: white;
+    border: 1px solid rgb(255, 116, 2);
+}
+
+.restart:hover {
+    transition: .4s ease-out;
+    box-shadow: 0 0 10px rgb(255, 82, 2),0 0 14px rgb(255, 82, 2),0 0 20px rgb(255, 137, 2), 0 0 25px rgb(255, 188, 2);
+    text-shadow: 0 0 15px rgb(255, 116, 2);
+    color: rgb(255, 116, 2);
+}
+
+.bloc_jeux3 {
+    margin-right: 30%;
+    margin-left: 30%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 2vh;
+    justify-content: center;
+}
+
+.bloc_jeux4 {
+    margin-right: 30%;
+    margin-left: 30%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2vh;
+    justify-content: center;
+}
+
+.bloc_jeux5,
+.bloc_jeux7{
+    margin-right: 27%;
+    margin-left: 27%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+}
+
+.bloc_jeux6,.bloc_jeux8,
+.bloc_jeux9
+ {
+    margin-right: 21%;
+    margin-left: 21%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
+}
+
+.bloc_jeux10{
+    margin-right: 21%;
+    margin-left: 21%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-content: center;
+}
+.bloc_jeux11,
+.bloc_jeux12 {
+    margin-right: 21%;
+    margin-left: 21%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    justify-content: center;
+}
+
+
+
+
 

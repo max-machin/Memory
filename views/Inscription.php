@@ -10,12 +10,12 @@ require_once "../controller/Controller_Inscription.php";
             <h2>Inscrivez-vous</h2>
             <form class="form_in" action="" method="post">
                 <input class="input_in" type="text" name="login" placeholder="Login *">
-                <span><?= $error_login ?><span><br/>
+                <span><?= $error_login ?></span><br/>
                 <input class="input_in" type="password" name="password" placeholder="Mot de passe *"><br/>
-                <span><?= $error_password ?><span><br/>
+                <span><?= $error_password ?></span>
                 <input class="input_in" type="password" name="passwordRepeat" placeholder="Confirmer mot de passe *"><br>
-                <span><?= $error_passwordRep ?><span><br/>
-                <input class="sub_in" type="submit" name="submit">
+                <span><?= $error_passwordRep ?></span>
+                <input class="sub_in" type="submit" name="submit" value="S'inscrire">
             </form>
         </div>
     </div>

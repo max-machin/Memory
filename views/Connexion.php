@@ -10,9 +10,9 @@ require "../controller/Controller_Connexion.php";
             <h2>Connectez-vous</h2>
             <form class="form_connexion" action="" method="post">
                 <input class="input_conn" type="text" name="login" placeholder="Login *">
-                <span><?= $error_login ?><span>
+                <span><?= $error_login ?></span>
                 <input class="input_conn" type="password" name="password" placeholder="Mot de passe *">
-                <span><?= $error_password ?><span><br/>
+                <span><?= $error_password ?></span>
                 <input class="submit_conn" type="submit" name="submit" value="Connexion">
             </form>
         </div>

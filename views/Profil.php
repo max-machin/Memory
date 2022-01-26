@@ -5,24 +5,31 @@ require "../views/require/Header.php";
 
 require_once "../controller/Controller_Profil.php";
 
+if(isset($_SESSION['user_data'])){
+
 ?>
 
-<h1>Bienvenue sur votre profil <?php if(!isset($data)){ echo $_SESSION['user_data']['login'];} else { echo $data[0]['login'];} ?></h1>
+<h1 class="titre_co">Bienvenue sur votre profil <a><?php if(!isset($data)){ echo $_SESSION['user_data']['login'];} else { echo $data[0]['login'];} ?></a></h1>
 
-<section class="section_profil">
-<div>
-    <h2>Modifiez vos informations</h2>
-    <span><?= $message ?></span>
+
+<div class="profil_div">
+    <h2 class="titre_profil">Modifiez vos informations</h2>
+    <span class="mess"><?= $message ?></span>
     <form action="" method="post">
-        <input type="text" name="login" value="<?php if(!isset($data)){ echo $_SESSION['user_data']['login'];} else { echo $data[0]['login'];} ?>">
-        <span><?= $error_login ?><span>
-        <input type="password" name="password" placeholder="Mot de passe *">
-        <span><?= $error_password ?><span>
-        <input type="password" name="passwordRepeat" placeholder="Confirmer mot de passe *">
-        <span><?= $error_passwordRep ?><span>
-        <input type="submit" name="submit">
-    </form>
+        <label for="login">Login</label><br/>
+        <input class="input_profil" id="login" type="text" name="login" value="<?php if(!isset($data)){ echo $_SESSION['user_data']['login'];} else { echo $data[0]['login'];} ?>"><br>
+        <span><?= $error_login ?></span><br>
 
+        <label for="password">Nouveau mot de passe</label><br/>
+        <input class="input_profil" id="password" type="password" name="password"><br>
+        <span><?= $error_password ?></span><br>
+
+        <label for="password_conf">Confirmer mot de passe</label><br/>
+        <input class="input_profil" id="password_conf" type="password" name="passwordRepeat"><br>
+        <span><?= $error_passwordRep ?></span><br>
+
+        <input class="submit_conn" type="submit" name="submit">
+    </form>
 </div>
 
 <?php
@@ -33,13 +40,12 @@ $id = $_SESSION['user_data']['id'];
 $score = new Score();
 $score_profil = $score->TroisMeilleursScores($id);
 
-
 $last_score = $score->CinqDernierScores($id);
 
-
-
 ?>
-<div>
+
+<section class="section_profil">
+<div class="classement_table_profil">
     <h2>Vos 3 Meilleurs scores</h2>
     <table>
         <thead>
@@ -65,7 +71,7 @@ $last_score = $score->CinqDernierScores($id);
     </table>
 </div>
 
-<div>
+<div class="classement_table_profil">
     <h2>Vos 5 dernières parties</h2>
     <table>
         <thead>
@@ -95,8 +101,9 @@ $last_score = $score->CinqDernierScores($id);
 <?php
 require_once "../controller/Controller_Carte_Profil.php";
 ?>
-<h2> Personnalisez vos cartes </h2>
 <section class="section_carte_profil">
+    <h2> Personnalisez vos cartes </h2>
+    <h3 class="classique">Classiques</h3>
     <section class="section_dos_carte">
         <form action="" method="post">
             <button name="dos1" value="../assets/images/dos1.png"><img src="../assets/images/dos1.png" height="300px" width="200px" alt="carte1"></button>
@@ -116,6 +123,7 @@ $verif_score = $score->VerifScore($id);
 
 if($verif_score >= 1){
 ?>
+    <h3 class="legendary">Légendaires</h3>
     <section class="carte_debloquer">
         <form action="" method="post">
             <button name="dos_anime1" value="../assets/images/dos1.gif">
@@ -129,20 +137,26 @@ if($verif_score >= 1){
             </button>
             <span><?= $carte_boss2 ?></span>
         </form>
-    </section>  
+    </section> 
+</section> 
 <?php
 }
 else {
     ?>
+    <h3 class="legendary">A débloquer</h3>
     <section class="carte_debloquer">
         <form action="">
-            <h2>A débloquer</h2>
-            <button>
-                <img src="../assets/images/lock_card.png" alt="to_unlock" height="300px" width="200px" >
-            </button>
-            <button>
-                <img src="../assets/images/lock_card.png" alt="to_unlock" height="300px" width="200px" >
-            </button>
+            
+            <form action="">
+                <button>
+                    <img src="../assets/images/lock_card.png" alt="to_unlock" height="300px" width="200px" >
+                </button>
+            </form>
+            <form action="">
+                <button>
+                    <img src="../assets/images/lock_card.png" alt="to_unlock" height="300px" width="200px" >
+                </button>
+            </form>
         </form>
     </section> 
 </section>
@@ -150,3 +164,6 @@ else {
 }
 
 require "../views/require/Footer.php";
+} else {
+    header("Location: Accueil.php");
+}
