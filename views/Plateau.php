@@ -39,7 +39,7 @@
             //Si l'état de la carte est "face", on gére l'affichage différement
             } elseif($value->etat == "face"){
             ?>
-                <form class="carte_face" action="">
+                <form class="carte_face" action=""> 
                     <button><img src="<?= $value->image ?>" alt="image_carte" height="<?= $height ?>px" width="<?= $width ?>px"></button>
                 </form>
             <?php

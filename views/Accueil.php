@@ -51,8 +51,8 @@ if (isset($_SESSION['user_data'])){
             <p><a href="Memory.php"> Lancer une partie</a></p>
     </section>
 <?php
-} else { 
-?>
+} else {  
+?> 
     <h1>Bienvenue sur <span>Memo'RIX</span></h1>
     <section class="section_accueil">
         <div class="section_cartes">

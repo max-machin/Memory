@@ -17,7 +17,7 @@ require_once "../controller/Controller_Inscription.php";
                 <span><?= $error_passwordRep ?></span>
                 <input class="sub_in" type="submit" name="submit" value="S'inscrire">
             </form>
-        </div>
+        </div> 
     </div>
 </div>
 <svg>

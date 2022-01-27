@@ -7,7 +7,7 @@ require_once "../classes/Score.php";
 $score = new Score();
 $top10 = $score->HallOfFame();
 
-?>
+?> 
 
 <h1>Hall of fame</h1>
 <div class="classement_table">
