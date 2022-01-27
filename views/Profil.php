@@ -103,6 +103,7 @@ require_once "../controller/Controller_Carte_Profil.php";
 ?>
 <section class="section_carte_profil">
     <h2> Personnalisez vos cartes </h2>
+    <h3 class="classique">*Débloquez des cartes en faisant un score < 1.50</h3>
     <h3 class="classique">Classiques</h3>
     <section class="section_dos_carte">
         <form action="" method="post">

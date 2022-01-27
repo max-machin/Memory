@@ -66,6 +66,7 @@ require "../controller/Affichage_Memory.php";
         <div class="bloc_fin_partie">
             <h2>Partie terminée!</h2>
             <p>Votre score : <?= $score ?></p>
+            <p>* Score = nombre coups / nombre paires</p>
             <a href="Profil.php">Votre profil</a>
             <a href="Accueil.php">Accueil</a>
             <a href="Classement.php">Hall of fame</a>
