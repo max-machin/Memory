@@ -28,7 +28,7 @@ class Carte {
         if (!isset( $_SESSION['comparer']))
             $_SESSION['comparer'] = [];
             //On insert les cartes à comparer dans une variable de session
-            array_push( $_SESSION['comparer'], $_POST['id_carte']);  
+            array_push( $_SESSION['comparer'], $_POST['id_carte']);   
             
     }
 }

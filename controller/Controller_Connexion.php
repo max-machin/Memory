@@ -10,7 +10,7 @@ if (isset($_POST['submit'])){
         if (!empty($_POST['password'])){
 
             $login = valid_data($_POST['login']);
-            $password = valid_data($_POST['password']);
+            $password = valid_data($_POST['password']); 
 
             $user = new User();
             $data = $user->VerifDataUser($login);

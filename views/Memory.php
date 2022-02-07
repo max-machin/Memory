@@ -58,24 +58,39 @@ require "../controller/Affichage_Memory.php";
                 </div>
         <?php
         }
-
+        
         if(isset(($_SESSION['gagner']))){
             $score = round($_SESSION['compteur'] / $_SESSION['nombre_paires'], 2);
-        ?>
-        <!-- Affichage de fin de partie   -->
-        <div class="bloc_fin_partie">
-            <h2>Partie terminée!</h2>
-            <p>Votre score : <?= $score ?></p>
-            <p>* Score = nombre coups / nombre paires</p>
-            <a href="Profil.php">Votre profil</a>
-            <a href="Accueil.php">Accueil</a>
-            <a href="Classement.php">Hall of fame</a>
-            <form method="post" action="">
-                <button class="restart" name="relancer">Relancer partie</button>
-            </form>
-        </div>
-        <?php
-        }
+            if(isset($_SESSION['user_data'])){
+                ?>
+                <!-- Fin de partie -->
+                <div class="bloc_fin_partie">
+                    <h2>Partie terminée!</h2>
+                    <p>Votre score : <?= $score ?></p>
+                    <p>* Score = nombre coups / nombre paires</p>
+                    <a href="Profil.php">Votre profil</a>
+                    <a href="Accueil.php">Accueil</a>
+                    <a href="Classement.php">Hall of fame</a>
+                    <form method="post" action="">
+                        <button class="restart" name="relancer">Relancer partie</button>
+                    </form>
+                </div>
+                <?php
+                    } else {
+                        ?>
+                    <div class="bloc_fin_partie">
+                    <h2>Partie terminée!</h2>
+                    <p>Votre score : <?= $score ?></p>
+                    <p>* Score = nombre coups / nombre paires</p>
+                    <a href="Accueil.php">Accueil</a>
+                    <a href="Classement.php">Hall of fame</a>
+                    <form method="post" action="">
+                        <button class="restart" name="relancer">Relancer partie</button>
+                    </form>
+                </div>
+                <?php
+                    }
+                }
     
         // Bloc contenant l'affichage du jeux en dynamique dans le fichier views/Plateau.php 
         if(isset($_SESSION['nombre_paires'])){
